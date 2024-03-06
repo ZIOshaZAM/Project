@@ -12,6 +12,8 @@ public class BookModel {
 	private String summary;
 	private String createdDate;
 	private String createdUser;
+	private String updatedDate;
+	private String updatedUser;
 
 	public int getBookId() {
 		return bookId;
@@ -44,8 +46,6 @@ public class BookModel {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-
-	
 
 	public int getCount() {
 		return count;
@@ -95,12 +95,29 @@ public class BookModel {
 		this.createdUser = createdUser;
 	}
 
+	public String getUpdatedDate() {
+		return updatedDate;
+	}
+
+	public void setUpdatedDate(String updatedDate) {
+		this.updatedDate = updatedDate;
+	}
+
+	public String getUpdatedUser() {
+		return updatedUser;
+	}
+
+	public void setUpdatedUser(String updatedUser) {
+		this.updatedUser = updatedUser;
+	}
+
 	public BookModel() {
 
 	}
 
 	public BookModel(int bookId, String bookName, String author, String category, int count, double price,
-			String pdfLink, String summary, String createdDate, String createdUser) {
+			String pdfLink, String summary, String createdDate, String createdUser, String updatedDate,
+			String updatedUser) {
 		super();
 		this.bookId = bookId;
 		this.bookName = bookName;
@@ -112,7 +129,8 @@ public class BookModel {
 		this.summary = summary;
 		this.createdDate = createdDate;
 		this.createdUser = createdUser;
-
+		this.updatedDate = updatedDate;
+		this.updatedUser = updatedUser;
 	}
 
 }

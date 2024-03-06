@@ -12,6 +12,7 @@
 	<h1>Edit Price</h1>
 	
 		<form action="editedPrice" method="POST">
+			<input type="hidden" value ="${bookEdit.count}" name="count">
 			Edit Price<input type="number" value="${bookEdit.price}" name="price">
 			<input type="hidden" value="${bookEdit.bookId}" name="bookId">
 			<a href="viewBook" class="btn btn-secondary btn-sm " role="button" aria-pressed="true">Cancel</a>

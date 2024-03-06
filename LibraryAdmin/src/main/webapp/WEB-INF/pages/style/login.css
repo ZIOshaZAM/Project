@@ -1,0 +1,255 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url('https://w.forfun.com/fetch/09/090eaff34acb7bc7adb9b06727462fe0.jpeg') no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(5px); 
+    filter: drop-shadow(8px 8px 10px gray);
+
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display:flex;
+    justify-content: space-between;
+    z-index: 99; 
+}
+.logo{
+    font-size: 1.9em;
+    color: white;
+    user-select: none;
+}
+.navigation a{
+    position: relative;
+    font-size: 1.4em;
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+
+}
+.navigation a::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    height: 3px;
+    left: 0;
+    bottom: -7px;
+    transform: scaleX(0);
+    transition:transform .2s;
+
+}
+.navigation a:hover::after{
+    transform: scaleX(1);
+}
+.login-btnPopup{
+    width: 120px;
+    height: 50px;
+    font-size: 1.1em;
+    border-radius: 7px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    font-weight: 500;
+    margin-left: 60px;
+    transition: 1s;
+}
+.login-btnPopup:hover{
+    transition: 1s;
+    background-color: white;
+    color: black;
+    font-size: 1.0em;
+    border-radius: 9px;
+}
+
+.wrapper{
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border:2px solid rgba(255, 255, 255, .5);
+    backdrop-filter: blur(39px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+    transition: height .2 ease;
+    border-radius: 7px;
+    transform: scale(0);
+    transition: transform .5s,height .2s ease;
+}
+.active-Popup{
+    transform: scale(1);
+
+}
+.wrapper.active{
+    height: 520px;
+}
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login{
+    transition:.18s ease;
+    transform: translate(0);
+
+}
+.wrapper.active .form-box.login{
+    transform: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register{
+      position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+.wrapper.active .form-box.register{
+    transition:.18s ease;
+    transform: translateX(0); 
+   
+}
+
+.form-box-login h2{
+    font-size: 1.6em;
+    color: black;
+    font-weight: 600;
+    text-align: center;
+    
+}
+.input-box{
+    width: 100%;
+    height: 50px;
+    position: relative;
+    border-bottom: 2px solid black;
+    margin: 30px 0;
+}
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+.input-box input:focus~label,
+.input-box input~vallid~label{
+    top: -5px;
+}
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1.1em;
+    background: none;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: white;
+
+}
+.remenber-forget{
+    font-size: .9em;
+    display: flex;
+    font-weight: 700;
+    justify-content: space-between;
+    color: black;
+    margin: -15px 0 15px;
+
+}
+.remenber-forget input{
+    accent-color:black;
+}
+.remenber-forget a{
+    text-decoration: none;
+    color: black;
+}
+.input-box::placeholder{
+    color: white;
+}
+input::placeholder {
+    color: white;
+}
+
+.login-btnPopup::placeholder {
+    color: white;
+}
+
+.remenber-forget a:hover{
+    text-decoration: underline;
+}
+.login-btn{
+    width: 100%;
+    height: 40px;
+    border-radius: 7px;
+    color: white;
+    background-color: #162938;
+    font-size: 1.1em;
+}
+.login-register{
+    font-weight: 500;
+    margin: 25px 0 10px;
+    font-size: .9em;
+    text-align: center;
+}
+.login-register a{
+    text-decoration: none;
+     font-size: 1.1em;
+    color: white;
+    font-weight: 600;
+}
+.login-register a:hover{
+    text-decoration: underline;
+}
+.close{
+    position: absolute;
+    background-color: #162938;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    font-size: 2em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.error{
+	color: danger;
+	text-align: center;
+}
+.register-link{
+    font-size: 1.1em;
+    color: white;
+    font-weight: 600;
+}
+
+

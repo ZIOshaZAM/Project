@@ -10,16 +10,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ai.jwd48.model.BookModel;
+import com.ai.jwd48.model.PaymentModel;
 import com.ai.jwd48.services.BookService;
+import com.ai.jwd48.services.PaymentService;
 
 @Controller
 public class HomeController {
 	@Autowired
 	private BookService bookService;
-
-	@RequestMapping({ "/", "/home" })
+	@Autowired
+	private PaymentService paymentService;
+	@RequestMapping("/home")
 	public String home() {
-		return "home";
+		return "reditect: viewBook";
 	}
 
 	@GetMapping("/addBook")
@@ -40,6 +43,19 @@ public class HomeController {
 		book.setCreatedUser(BookModel.getCreatedUser());
 		book.setCreatedDate(BookModel.getCreatedDate());
 		bookService.addBook(book);
+		return "redirect:/viewBook";
+	}
+
+	@GetMapping("/addPayment")
+	public String addingPayment() {
+		return "addPayment";
+	}
+
+	@PostMapping("/addPayment")
+	public String addPayment(PaymentModel PaymentModel, ModelMap model, HttpSession session) {
+		PaymentModel payment = new PaymentModel();
+		payment.setName(PaymentModel.getName());
+		paymentService.addPayment(payment);
 		return "redirect:/viewBook";
 	}
 }
